@@ -13,9 +13,14 @@ public interface Forum {
 
     Post getPostById(int postId);
 
-    Post[] getPostByAuthor(String author);
 
-    Post[] getPostsByAuthor(String autho, LocalDate dateFrom, LocalDate dateTo);
+    default Post[] getPostsByAuthor() {
+        return getPostsByAuthor(null);
+    }
+
+    Post[] getPostsByAuthor(String author);
+
+    Post[] getPostsByAuthor(String author, LocalDate dateFrom, LocalDate dateTo);
 
     int size();
 }
